@@ -1,5 +1,7 @@
 ## Оптимизация работы коммунальных служб 🗑️
 
+![](https://us.glasdon.com/images/products/400/glasdon-jubilee-80g-trash-can-3543-silver.jpg)
+
 ### Настройка окружения
 ```
 pip install -e .
