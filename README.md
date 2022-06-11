@@ -66,6 +66,6 @@ docker-compose down
 
 ## С чем можно поэкспериментировать
 
-- [ ] В конфиге поменять модель на одну из [https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet.csv](моделей в бибилиотеке timm)
+- [ ] В конфиге поменять модель на одну из [моделей в бибилиотеке timm](https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet.csv)
 - [ ] Размеры изображения 256, 384, 512
 - [ ] Оптимайзер, шедьюлер, лернинг рейт
