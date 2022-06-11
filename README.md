@@ -64,8 +64,8 @@ docker-compose down
     └── webapp.py
 ```
 
-#### С чем можно поэкспериментировать
+## С чем можно поэкспериментировать
 
-[ ] В конфиге поменять модель на одну из [https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet.csv](моделей в бибилиотеке timm)
-[ ] Размеры изображения 256, 384, 512
-[ ] Оптимайзер, шедьюлер, лернинг рейт
+- [ ] В конфиге поменять модель на одну из [https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet.csv](моделей в бибилиотеке timm)
+- [ ] Размеры изображения 256, 384, 512
+- [ ] Оптимайзер, шедьюлер, лернинг рейт
