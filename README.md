@@ -22,7 +22,7 @@ python trash/torch2onnx.py
 python trash/webapp.py
 ```
 
-## Собрать докер
+## Запуск фронта через докер
 ```
 docker-compose up --build
 ```
