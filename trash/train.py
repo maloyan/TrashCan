@@ -1,6 +1,4 @@
-import json
 import os
-import sys
 
 import albumentations as A
 import pandas as pd
@@ -8,14 +6,15 @@ import timm
 import torch
 import torch.nn.functional as F
 import wandb
+from omegaconf import OmegaConf
+from pkg_resources import resource_filename
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 
 from trash.dataset import TargetDataset
 from trash.engine import eval_fn, train_fn
 
-with open(sys.argv[1], "r") as f:
-    config = json.load(f)
+config = OmegaConf.load(resource_filename(__name__, "configs/config.yaml"))
 
 wandb.init(
     config=config,
@@ -53,10 +52,14 @@ df = pd.read_csv(config["data_csv"])
 df_train, df_val = train_test_split(df)
 
 
-train_data = [os.path.join(config["data_path"], 'train', i) for i in df_train.ID_img.values]
+train_data = [
+    os.path.join(config["data_path"], "train", i) for i in df_train.ID_img.values
+]
 train_target = df_train["class"].values
 
-valid_data = [os.path.join(config["data_path"], 'train', i) for i in df_val.ID_img.values]
+valid_data = [
+    os.path.join(config["data_path"], "train", i) for i in df_val.ID_img.values
+]
 valid_target = df_val["class"].values
 
 train_dataset = TargetDataset(

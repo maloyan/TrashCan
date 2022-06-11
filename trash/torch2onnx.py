@@ -1,10 +1,8 @@
-import json
-import sys
-
 import torch.onnx
+from omegaconf import OmegaConf
+from pkg_resources import resource_filename
 
-with open(sys.argv[1], "r") as f:
-    config = json.load(f)
+config = OmegaConf.load(resource_filename(__name__, "configs/config.yaml"))
 
 device = "cpu"
 

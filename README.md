@@ -1,27 +1,66 @@
-## Хакатон Digital League AI Challenge
+## Оптимизация работы коммунальных служб
 
-#### Настройка окружения
+### Настройка окружения
 ```
 pip install -e .
-pip install -r requirements
 ```
-#### Запуск обучения
+### Запуск обучения
 ```
-python trash/train.py configs/config.json 
-```
-
-#### Конвертация в onnx
-```
-python trash/torch2onnx.py configs/config.json 
+python trash/train.py
 ```
 
-#### Запуск фронта
+### Конвертация в onnx
 ```
-python trash/webapp.py checkpoints/128_resnet50.onnx
+python trash/torch2onnx.py
 ```
 
-#### Собрать докер
+### Запуск фронта
 ```
-docker build . -t trash
-docker run -p 8989:8989 --ipc=host -d --rm trash:latest
+python trash/webapp.py
 ```
+
+### Собрать докер
+```
+docker-compose up --build
+```
+Зайти на [localhost:8989]()
+
+Завершить работу
+```
+docker-compose down
+```
+
+### Структура проекта
+```
+├── checkpoints
+│   ├── 256_resnet50.onnx
+│   └── 256_resnet50.pt
+├── data
+│   ├── sample_solution.csv
+│   ├── test
+│   ├── train
+│   ├── train.csv
+│   ├── Условие_задачи_Чемпионат_Республика_Башкортостан.pdf
+│   └── Уфа_baseline.ipynb
+├── docker-compose.yml
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── setup.py
+└── trash
+    ├── configs
+    ├── dataset.py
+    ├── engine.py
+    ├── predict.py
+    ├── __pycache__
+    ├── torch2onnx.py
+    ├── train.py
+    └── webapp.py
+```
+
+#### С чем можно поэкспериментировать
+
+[ ] В конфиге поменять модель на одну из [https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet.csv](моделей в бибилиотеке timm)
+[ ] Размеры изображения 256, 384, 512
+[ ] Оптимайзер, шедьюлер, лернинг рейт

@@ -1,15 +1,14 @@
-import json
 import os
-import sys
 
 import cv2
 import numpy as np
 import pandas as pd
 import torch
+from omegaconf import OmegaConf
+from pkg_resources import resource_filename
 from tqdm import tqdm
 
-with open(sys.argv[1], "r") as f:
-    config = json.load(f)
+config = OmegaConf.load(resource_filename(__name__, "configs/config.yaml"))
 
 model = torch.load(
     f"{config['checkpoints']}/{config['image_size']}_{config['model']}.pt"
@@ -19,7 +18,8 @@ model.eval()
 
 meta_info = pd.read_csv("data/sample_solution.csv")
 test_data = [
-    os.path.join(config["data_path"], "test", i) for i in meta_info.ID_img.values
+    os.path.join(config["data_path"], "test", f"{i}.jpg")
+    for i in meta_info.ID_img.values
 ]
 
 fin_outputs = []

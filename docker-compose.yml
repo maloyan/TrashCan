@@ -1,0 +1,9 @@
+version: "3"
+services:
+  trash:
+    build: .
+    command: bash -c "python trash/webapp.py && echo localhost:8989"
+    ports:
+      - "8989:8989"
+    volumes:
+      - ".:/workspace"
