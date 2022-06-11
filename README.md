@@ -26,7 +26,7 @@ python trash/webapp.py
 ```
 docker-compose up --build
 ```
-Зайти на [localhost:8989]()
+Зайти на [localhost:8989](http://localhost:8989)
 
 Завершить работу
 ```
