@@ -58,7 +58,6 @@ docker-compose down
     ├── dataset.py
     ├── engine.py
     ├── predict.py
-    ├── __pycache__
     ├── torch2onnx.py
     ├── train.py
     └── webapp.py
